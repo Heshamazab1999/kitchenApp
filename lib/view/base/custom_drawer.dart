@@ -8,7 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({super.key});
+  const CustomDrawer({super.key, this.close});
+
+  final Function()? close;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class CustomDrawer extends StatelessWidget {
           children: [
             AppDimensions.space(Dimensions.heightSmall).sBH,
             IconButton(
-              onPressed: () {},
+              onPressed: close,
               icon: const Icon(Icons.clear, color: Colors.white, size: 35),
             ),
             AppDimensions.space(Dimensions.heightSmall).sBH,
@@ -30,10 +32,8 @@ class CustomDrawer extends StatelessWidget {
                 itemCount: HomeScreenController.to.labels.length,
                 itemBuilder: (ctx, index) => Obx(() => GestureDetector(
                       onTap: () {
-                        if (index == 1) {
-                          Get.to(() => const OfferPriceScreen());
-                        }
                         HomeScreenController.to.selected.value = index;
+                        Get.to(() => HomeScreenController.to.screens[index]);
                       },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(

@@ -10,6 +10,7 @@ import 'package:Kitchen_system/utill/messages.dart';
 import 'package:Kitchen_system/view/screens/home/home_screen.dart';
 import 'package:Kitchen_system/view/screens/login/login_screen.dart';
 import 'package:Kitchen_system/view/screens/offer_price/offer_price_screen.dart';
+import 'package:Kitchen_system/view/screens/splash/controller/splash_screen_controller.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mentions/flutter_mentions.dart';
@@ -47,6 +48,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(SplashController());
     return GetBuilder<LocalizationController>(builder: (localizeController) {
       return GetBuilder<ThemeController>(builder: (themeController) {
         return Portal(

@@ -52,7 +52,7 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Get.to(() => controller.screens[index]);
+                        Get.to(() => controller.screens[index+1]);
                       },
                       child: Container(
                         width: AppDimensions.space(5),

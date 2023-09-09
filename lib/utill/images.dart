@@ -20,6 +20,10 @@ class Images {
   static const String logoSignIn = 'assets/image/logo_signin.png';
   static const String menu = 'assets/image/menu.png';
   static const String search = 'assets/image/search.png';
+  static const String printIcon = 'assets/image/printIcon.png';
+  static const String editIcon = 'assets/image/editIcon.png';
+  static const String back = 'assets/image/back.png';
+  static const String icon = 'assets/image/icon.png';
   static const String translation = 'assets/image/translation.png';
   static const String unitedKingdom = 'assets/image/united_kindom.png';
   static const String done = 'assets/image/done.png';
@@ -56,7 +60,6 @@ class Images {
   static const String remove = 'assets/image/remove.png';
   static const String edit = 'assets/image/edit.png';
   static const String addText = 'assets/image/add_text.png';
-  static const String editIcon = 'assets/image/editIcon.png';
   static const String send = 'assets/image/send.png';
   static const String fileView = 'assets/image/file.png';
   static const String todo = 'assets/image/todo.png';

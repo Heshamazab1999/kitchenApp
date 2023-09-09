@@ -11,7 +11,7 @@ class CustomButton extends StatelessWidget {
   final double? width;
   final double? fontSize;
   final double? radius;
-  final IconData? icon;
+  final String? icon;
 
   const CustomButton(
       {super.key,
@@ -63,7 +63,7 @@ class CustomButton extends StatelessWidget {
                       ? Padding(
                           padding: const EdgeInsets.only(
                               right: Dimensions.PADDING_SIZE_EXTRA_SMALL),
-                          child: Icon(icon,
+                          child: Image.asset(icon!,
                               color: transparent!
                                   ? Theme.of(context).primaryColor
                                   : Theme.of(context).cardColor),

@@ -1,5 +1,6 @@
 import 'package:Kitchen_system/controller/base_controller.dart';
 import 'package:Kitchen_system/helper/cache_helper.dart';
+import 'package:Kitchen_system/helper/network/dio_integration.dart';
 import 'package:Kitchen_system/model/response/user_model.dart';
 import 'package:Kitchen_system/model/valid_model.dart';
 import 'package:Kitchen_system/utill/app_constants.dart';
@@ -47,9 +48,9 @@ class LoginController extends BaseController {
         CacheHelper.saveData(
             key: AppConstants.expireOn, value: user.data!.expiresOn);
         CacheHelper.saveData(key: AppConstants.token, value: user.data!.token);
-
         emailController.clear();
         passwordController.clear();
+        DioUtilNew.setDioAgain();
         _loading.value = false;
       } else {
         _loading.value = false;

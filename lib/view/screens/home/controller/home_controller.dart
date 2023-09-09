@@ -1,5 +1,6 @@
 import 'package:Kitchen_system/controller/base_controller.dart';
 import 'package:Kitchen_system/utill/images.dart';
+import 'package:Kitchen_system/view/screens/home/home_screen.dart';
 import 'package:Kitchen_system/view/screens/offer_price/offer_price_screen.dart';
 import 'package:get/get.dart';
 
@@ -38,5 +39,5 @@ class HomeScreenController extends BaseController {
     Images.health,
     Images.filter
   ];
-  final screens = [OfferPriceScreen()];
+  final screens = [HomeScreen(), OfferPriceScreen()];
 }

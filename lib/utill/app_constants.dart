@@ -37,10 +37,21 @@ class AppConstants {
   static const String expireOn = 'expireOn';
   static const String countryCode = 'country_code';
   static const String languageCode = 'language_code';
+  static const String clientId = 'clientId';
+  static const String typeId = 'typeId';
 
 // endPoint
 
   static const String login = '/Users/Login';
+  static const String addClient = '/Client/AddClient';
+  static const String getAllUsers = '/Users/GetAllUsers';
+  static const String loadFinalStatusList =
+      '/StatusCategory/LoadFinalStatusList/';
+  static const String addClientFile = '/ClientFile/AddClientFile';
+  static const String getShortClientFiles = '/ClientFile/GetShortClientFiles';
+  static const String loadPriceOffer = '/ClientFile/LoadPriceOffer';
+  static const String getUnitsItemsbyCategory =
+      '/StatusCategory/GetUnitsItemsbyCategory';
 
   static List<LanguageModel> languages = [
     LanguageModel(

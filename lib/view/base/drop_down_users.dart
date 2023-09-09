@@ -1,19 +1,20 @@
 import 'package:Kitchen_system/helper/configs/app_dimensions.dart';
 import 'package:Kitchen_system/model/response/departments_list_model.dart';
 import 'package:Kitchen_system/model/response/kitchen_model.dart';
+import 'package:Kitchen_system/model/response/user_ids_model.dart';
 import 'package:Kitchen_system/utill/color_resources.dart';
 import 'package:Kitchen_system/utill/dimensions.dart';
 import 'package:Kitchen_system/utill/extension_sized_box.dart';
 import 'package:Kitchen_system/utill/styles.dart';
 import 'package:flutter/material.dart';
 
-class DropDownWidget extends StatelessWidget {
-  const DropDownWidget(
+class DropDownUsersWidget extends StatelessWidget {
+  const DropDownUsersWidget(
       {Key? key, this.type, this.list, this.onchange, this.label = ""})
       : super(key: key);
-  final Statuses? type;
-  final List<Statuses>? list;
-  final Function(Statuses?)? onchange;
+  final UsersDataModel? type;
+  final List<UsersDataModel>? list;
+  final Function(UsersDataModel?)? onchange;
   final String? label;
 
   @override
@@ -38,7 +39,7 @@ class DropDownWidget extends StatelessWidget {
               elevation: 1,
               borderRadius: BorderRadius.circular(8),
               shadowColor: ColorResources.CATEGORY_SHADOW,
-              child: DropdownButtonFormField<Statuses>(
+              child: DropdownButtonFormField<UsersDataModel>(
                 isExpanded: true,
                 value: type,
                 onChanged: onchange,
@@ -48,10 +49,11 @@ class DropDownWidget extends StatelessWidget {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide.none)),
-                items: list!.map<DropdownMenuItem<Statuses>>((Statuses type) {
-                  return DropdownMenuItem<Statuses>(
+                items: list!.map<DropdownMenuItem<UsersDataModel>>(
+                    (UsersDataModel type) {
+                  return DropdownMenuItem<UsersDataModel>(
                     value: type,
-                    child: Text(type.description ?? ""),
+                    child: Text(type.userName ?? ""),
                   );
                 }).toList(),
               ),

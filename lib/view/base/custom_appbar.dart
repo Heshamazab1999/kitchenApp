@@ -29,16 +29,17 @@ class _CustomAppBarState extends State<CustomAppBar> {
             Get.back(result: true);
           },
           icon: const Icon(Icons.arrow_back_ios)),
-      title: Image.asset(Images.arabic,
-          width: AppDimensions.space(2),
-          ),
+      title: Image.asset(
+        Images.arabic,
+        width: AppDimensions.space(2),
+      ),
       actions: [
         widget.showAction!
             ? CustomButton(
                 buttonText: widget.label,
                 width: AppDimensions.space(Dimensions.FONT_SIZE_EXTRA_SMALL),
                 onPressed: widget.onTap,
-                icon: Icons.add,
+                icon: Images.add,
               )
             : const SizedBox()
       ],

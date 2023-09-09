@@ -160,7 +160,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   )
                 : widget.widgetPrefix,
             prefixIconConstraints:
-                const BoxConstraints(minWidth: 50, maxHeight: 50),
+                const BoxConstraints(minWidth: 25, maxHeight: 25),
             suffixIcon: widget.isShowSuffixIcon!
                 ? widget.isPassword!
                     ? IconButton(
