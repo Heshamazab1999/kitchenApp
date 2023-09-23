@@ -52,7 +52,7 @@
     <application
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:label="Afaq system"
+        android:label="Kitchen App"
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true">
         <meta-data

@@ -56,13 +56,17 @@ dependencies:
   file_picker:
   file_previewer:
   flutter_cupertino_datetime_picker:
-  modal_bottom_sheet: ^2.1.2
   shimmer:
   flutter_mentions:
   syncfusion_flutter_datepicker:
   country_code_picker:
   network_to_file_image:
   url_launcher:
+  file_icon:
+  firebase_core:
+  firebase_messaging:
+  flutter_local_notifications:
+
 
 
 

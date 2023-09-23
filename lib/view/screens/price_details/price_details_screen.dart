@@ -1,12 +1,15 @@
 import 'package:Kitchen_system/enum/view_state.dart';
+import 'package:Kitchen_system/helper/cache_helper.dart';
 import 'package:Kitchen_system/helper/configs/app.dart';
 import 'package:Kitchen_system/helper/configs/app_dimensions.dart';
 import 'package:Kitchen_system/model/body/add_client_file_model.dart';
+import 'package:Kitchen_system/utill/app_constants.dart';
 import 'package:Kitchen_system/utill/dimensions.dart';
 import 'package:Kitchen_system/utill/extension_sized_box.dart';
 import 'package:Kitchen_system/utill/styles.dart';
 import 'package:Kitchen_system/view/base/custom_button.dart';
 import 'package:Kitchen_system/view/base/custom_drop_down.dart';
+import 'package:Kitchen_system/view/base/custom_drop_down_clients.dart';
 import 'package:Kitchen_system/view/base/drop_down_widget.dart';
 import 'package:Kitchen_system/view/base/row_text_field.dart';
 import 'package:Kitchen_system/view/screens/price_details/controller/price_details_controller.dart';
@@ -61,6 +64,18 @@ class PriceDetailsScreen extends StatelessWidget {
                         ),
                         const Expanded(child: Divider()),
                       ]),
+                      Obx(() => CustomDropDownClients(
+                            type: controller.clientsSelected.value,
+                            list: controller.clientsList,
+                            onchange: (value) {
+                              controller.clientsSelected.value = value!;
+                              CacheHelper.saveData(
+                                  key: AppConstants.clientId,
+                                  value: controller
+                                      .clientsSelected.value.clientId);
+                              controller.loading.value = false;
+                            },
+                          )),
                       AppDimensions.space(Dimensions.heightSmall).sBH,
                       Obx(() => CustomRowTextField(
                             label: "الاسم",

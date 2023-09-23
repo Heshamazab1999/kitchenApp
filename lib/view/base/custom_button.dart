@@ -64,6 +64,7 @@ class CustomButton extends StatelessWidget {
                           padding: const EdgeInsets.only(
                               right: Dimensions.PADDING_SIZE_EXTRA_SMALL),
                           child: Image.asset(icon!,
+                              height: 20,
                               color: transparent!
                                   ? Theme.of(context).primaryColor
                                   : Theme.of(context).cardColor),

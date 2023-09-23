@@ -3,8 +3,6 @@ import 'package:Kitchen_system/utill/dimensions.dart';
 import 'package:Kitchen_system/utill/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import 'dart:math' as math;
 
 import 'package:rflutter_alert/rflutter_alert.dart';
 
@@ -159,8 +157,5 @@ class DialogUtils {
     await alert.show();
   }
 
-  static void displayBottomSheet(BuildContext context, {Widget? widget}) {
-    showCupertinoModalBottomSheet(
-        context: context, builder: (context) => widget!);
-  }
+
 }

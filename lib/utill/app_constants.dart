@@ -52,6 +52,15 @@ class AppConstants {
   static const String loadPriceOffer = '/ClientFile/LoadPriceOffer';
   static const String getUnitsItemsbyCategory =
       '/StatusCategory/GetUnitsItemsbyCategory';
+  static const String getClientFileById = '/ClientFile/GetClientFileById/';
+  static const String addClientFileFollowUp =
+      '/ClientFile/AddClientFileFollowUp';
+  static const String getAllFollowUp = '/ClientFile/GetAllFollowUp';
+  static const String addClientFileAttachment =
+      '/ClientFile/AddClientFileAttachment';
+  static const String getAllClients = '/Client/GetAllClients';
+  static const String updateClientFile = '/ClientFile/UpdateClientFile/';
+  static const String deleteClientFile = '/ClientFile/DeleteClientFile/';
 
   static List<LanguageModel> languages = [
     LanguageModel(

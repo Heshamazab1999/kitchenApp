@@ -2,13 +2,17 @@ import 'package:Kitchen_system/controller/base_controller.dart';
 import 'package:Kitchen_system/enum/view_state.dart';
 import 'package:Kitchen_system/model/response/data_filter_model.dart';
 import 'package:Kitchen_system/model/response/data_filter_model.dart';
+import 'package:Kitchen_system/model/response/details_offer_prices_model.dart';
 import 'package:Kitchen_system/model/response/item_model.dart';
 import 'package:Kitchen_system/model/response/kitchen_model.dart';
 import 'package:Kitchen_system/model/response/user_ids_model.dart';
 import 'package:Kitchen_system/utill/images.dart';
+import 'package:Kitchen_system/view/screens/followers/followers_screen.dart';
 import 'package:Kitchen_system/view/screens/home/home_screen.dart';
 import 'package:Kitchen_system/view/screens/offer_price/offer_price_screen.dart';
-import 'package:Kitchen_system/view/screens/offer_price/offer_services.dart';
+import 'package:Kitchen_system/view/screens/offer_price/services/offer_services.dart';
+import 'package:Kitchen_system/view/screens/price_details/price_details_screen.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class OfferScreenController extends BaseController {
@@ -22,6 +26,7 @@ class OfferScreenController extends BaseController {
   DataFilterModel? dataFilterModel;
   final datFilterList = <DataFilter>[].obs;
   final loading = false.obs;
+  DetailsOfferPricesModel? detailsOfferPricesModel;
   final labels = <DropdownModel>[
     DropdownModel(label: "المطابخ", id: 1),
     DropdownModel(label: "الابواب", id: 2),
@@ -47,6 +52,23 @@ class OfferScreenController extends BaseController {
     "توصيلات صحية",
     "النواقص"
   ];
+  final labelsCard = [
+    "طباعة",
+    "تعديل",
+    "تراجع",
+    "متابعات",
+    "مرافقات",
+    "ملاحظات"
+  ];
+  final imagesCard = [
+    Images.print,
+    Images.editIcons,
+    Images.remove,
+    Images.followers,
+    Images.contract,
+    Images.notification,
+  ];
+  final screensCard = [const PriceDetailsScreen(), const FollowersScreen()];
   final images = [
     Images.home,
     Images.signDolar,
@@ -126,6 +148,23 @@ class OfferScreenController extends BaseController {
         finalStatusId: itemSelected.value.statusId,
         fileTypeId: 1);
     datFilterList.assignAll(dataFilterModel?.data ?? []);
+    loading.value = false;
+  }
+
+  getDetails({int? id}) async {
+    detailsOfferPricesModel = await services.getDetails(id: id);
+  }
+
+  deleteOffer(BuildContext context, {int? id}) async {
+    await services.deleteOffer(context, id: id);
+    loading.value = true;
+    dataFilterModel = await services.getShortClientFiles(
+        pageType: 0,
+        userId: userSelected.value.id,
+        finalStatusId: itemSelected.value.statusId,
+        fileTypeId: 1);
+    datFilterList.assignAll(dataFilterModel?.data ?? []);
+    Get.back();
     loading.value = false;
   }
 }

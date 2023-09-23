@@ -72,4 +72,7 @@ class Images {
   static const String male = 'assets/image/male.svg';
   static const String female = 'assets/image/female.svg';
   static const String card = 'assets/image/id-card.png';
+  static const String print = 'assets/image/print.png';
+  static const String editIcons = 'assets/image/edit.png';
+  static const String removeIcons = 'assets/image/remove.png';
 }

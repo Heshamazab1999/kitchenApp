@@ -3,6 +3,7 @@ import 'package:Kitchen_system/enum/view_state.dart';
 import 'package:Kitchen_system/helper/cache_helper.dart';
 import 'package:Kitchen_system/model/body/AddClientModel.dart';
 import 'package:Kitchen_system/model/body/add_client_file_model.dart';
+import 'package:Kitchen_system/model/response/client_emails_model.dart';
 import 'package:Kitchen_system/model/response/client_model.dart';
 import 'package:Kitchen_system/model/response/kitchen_model.dart';
 import 'package:Kitchen_system/model/response/units_model.dart';
@@ -15,12 +16,14 @@ import 'package:get/get.dart';
 
 class PriceDetailsController extends BaseController {
   final services = PriceDetailsServices();
+  ClientEmailsModel? clientEmailsModel;
   KitchenModel? data;
   UnitsModel? unitsModel;
   final _name = Valid().obs;
   final _phone = Valid().obs;
   final _address = Valid().obs;
   final granetList = <Statuses>[].obs;
+  final clientsList = <Clients>[].obs;
   final wallList = <Statuses>[].obs;
   final thickeningList = <Statuses>[].obs;
   final woodList = <Statuses>[].obs;
@@ -38,6 +41,7 @@ class PriceDetailsController extends BaseController {
   final healthList = <Statuses>[].obs;
   final accessioresList = <Statuses>[].obs;
   final garanetSelected = Statuses().obs;
+  final clientsSelected = Clients().obs;
   final wallSelected = Statuses().obs;
   final thickeningSelected = Statuses().obs;
   final woodSelected = Statuses().obs;
@@ -105,7 +109,14 @@ class PriceDetailsController extends BaseController {
     await getMaglaHoleList();
     await getShafatList();
     await getHealthtList();
+    await getClients();
     setState(ViewState.idle);
+  }
+
+  getClients() async {
+    clientEmailsModel = await services.getClient();
+    clientsList.assignAll(clientEmailsModel?.data ?? []);
+    clientsSelected.value = clientsList[0];
   }
 
   changeEmail(String email) {
