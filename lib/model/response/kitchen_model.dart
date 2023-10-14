@@ -475,7 +475,7 @@ class Statuses {
 
   Statuses.fromJson(dynamic json) {
     defaultDesc = json['defaultDesc'];
-    description = json['description'];
+    description = json['description'] ?? json['defaultDesc'];
     descriptionEn = json['descriptionEn'];
     statusId = json['statusId'];
     price = json['price'];

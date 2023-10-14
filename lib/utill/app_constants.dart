@@ -2,8 +2,8 @@ import 'package:Kitchen_system/model/body/language_model.dart';
 import 'package:Kitchen_system/utill/images.dart';
 
 class AppConstants {
-  static const String baseurl = 'http://194.163.132.242:5000/api';
-  static const String baseurlImages = 'http://194.163.132.242:5000';
+  static const String baseurl = 'http://194.163.132.242:8080/api';
+  static const String baseurlImages = 'http://194.163.132.242:8080/Photos/';
 
   static const String arabic = 'Arabic';
   static const String english = 'English';
@@ -57,10 +57,16 @@ class AppConstants {
       '/ClientFile/AddClientFileFollowUp';
   static const String getAllFollowUp = '/ClientFile/GetAllFollowUp';
   static const String addClientFileAttachment =
-      '/ClientFile/AddClientFileAttachment';
+      '/ClientFileAttachment/AddClientFileAttachment';
   static const String getAllClients = '/Client/GetAllClients';
   static const String updateClientFile = '/ClientFile/UpdateClientFile/';
   static const String deleteClientFile = '/ClientFile/DeleteClientFile/';
+  static const String getStatusCategoryById =
+      '/StatusCategory/GetStatusCategoryById/';
+  static const String getAllClientFileAttachment =
+      '/ClientFileAttachment/GetAllClientFileAttachment';
+  static const String deleteClientFileAttachment =
+      '/ClientFile/DeleteClientFileAttachment/';
 
   static List<LanguageModel> languages = [
     LanguageModel(

@@ -27,6 +27,8 @@ class OfferScreenController extends BaseController {
   final datFilterList = <DataFilter>[].obs;
   final loading = false.obs;
   DetailsOfferPricesModel? detailsOfferPricesModel;
+  final itemSelectedFilter = 0.obs;
+  final userSelectedFilter = 0.obs;
   final labels = <DropdownModel>[
     DropdownModel(label: "المطابخ", id: 1),
     DropdownModel(label: "الابواب", id: 2),
@@ -127,9 +129,12 @@ class OfferScreenController extends BaseController {
             itemSelected.value = itemList[0],
             dataFilterModel = await services.getShortClientFiles(
                 pageType: 0,
-                userId: userSelected.value.id,
-                finalStatusId: itemSelected.value.statusId,
-                fileTypeId: 1),
+                userId:  userSelectedFilter.value,
+                finalStatusId:
+                itemSelectedFilter.value,
+                fileTypeId: groupValue.value.id
+                // fileTypeId: 1
+                ),
             datFilterList.assignAll(dataFilterModel?.data ?? []),
           }
         : {
@@ -144,9 +149,12 @@ class OfferScreenController extends BaseController {
     loading.value = true;
     dataFilterModel = await services.getShortClientFiles(
         pageType: 0,
-        userId: userSelected.value.id,
-        finalStatusId: itemSelected.value.statusId,
-        fileTypeId: 1);
+        userId:  userSelectedFilter.value,
+        finalStatusId:
+            itemSelectedFilter.value,
+        fileTypeId: groupValue.value.id
+        // fileTypeId: 1
+        );
     datFilterList.assignAll(dataFilterModel?.data ?? []);
     loading.value = false;
   }
@@ -160,9 +168,12 @@ class OfferScreenController extends BaseController {
     loading.value = true;
     dataFilterModel = await services.getShortClientFiles(
         pageType: 0,
-        userId: userSelected.value.id,
-        finalStatusId: itemSelected.value.statusId,
-        fileTypeId: 1);
+        userId: userSelectedFilter.value,
+        finalStatusId:
+            itemSelected.value,
+        fileTypeId: groupValue.value.id
+        // fileTypeId: 1
+        );
     datFilterList.assignAll(dataFilterModel?.data ?? []);
     Get.back();
     loading.value = false;

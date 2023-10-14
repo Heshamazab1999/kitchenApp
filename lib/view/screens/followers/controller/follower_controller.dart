@@ -19,6 +19,7 @@ class FollowerController extends BaseController {
   final path = "".obs;
   final note = "".obs;
   final file = File("").obs;
+  final loading = false.obs;
 
   selectFile() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles();
@@ -36,8 +37,10 @@ class FollowerController extends BaseController {
     if (file.value.path == "") {
       showCustomSnackBar("يجب اختيار ملف", context);
     } else {
+      loading.value = true;
       await services.addClientFileFollowUp(
           note: note.value, file: file.value, clientFileId: clientFileId);
+      loading.value = false;
     }
   }
 

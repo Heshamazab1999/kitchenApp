@@ -88,13 +88,18 @@ class FollowersScreen extends StatelessWidget {
               ),
             ),
             20.sBH,
-            CustomButton(
-              width: AppDimensions.space(10),
-              buttonText: "اضافه",
-              onPressed: () {
-                controller.addFollowUp(context, clientFileId: clientFileId);
-              },
-            )
+            Obx(() => controller.loading.value
+                ? const Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : CustomButton(
+                    width: AppDimensions.space(10),
+                    buttonText: "اضافه",
+                    onPressed: () {
+                      controller.addFollowUp(context,
+                          clientFileId: clientFileId);
+                    },
+                  ))
           ],
         ),
       ),
