@@ -10,39 +10,29 @@ class FollowUpModel {
     if (json['data'] != null) {
       data = [];
       json['data'].forEach((v) {
-        data?.add(Data.fromJson(v));
+        data?.add(FollowList.fromJson(v));
       });
     }
     isSucsseded = json['isSucsseded'];
     status = json['status'];
   }
   String? message;
-  List<Data>? data;
+  List<FollowList>? data;
   bool? isSucsseded;
   int? status;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['message'] = message;
-    if (data != null) {
-      map['data'] = data?.map((v) => v.toJson()).toList();
-    }
-    map['isSucsseded'] = isSucsseded;
-    map['status'] = status;
-    return map;
-  }
 
 }
 
-class Data {
-  Data({
+class FollowList {
+  FollowList({
       this.id, 
       this.attachment, 
       this.attachmentPath, 
       this.note, 
       this.creationDate,});
 
-  Data.fromJson(dynamic json) {
+  FollowList.fromJson(dynamic json) {
     id = json['id'];
     attachment = json['attachment'];
     attachmentPath = json['attachmentPath'];

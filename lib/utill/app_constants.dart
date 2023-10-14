@@ -43,7 +43,7 @@ class AppConstants {
 // endPoint
 
   static const String login = '/Users/Login';
-  static const String addClient = '/Client/AddClient';
+  static const String addClient = '/ClientFile/AddClientFile';
   static const String getAllUsers = '/Users/GetAllUsers';
   static const String loadFinalStatusList =
       '/StatusCategory/LoadFinalStatusList/';
@@ -54,8 +54,8 @@ class AppConstants {
       '/StatusCategory/GetUnitsItemsbyCategory';
   static const String getClientFileById = '/ClientFile/GetClientFileById/';
   static const String addClientFileFollowUp =
-      '/ClientFile/AddClientFileFollowUp';
-  static const String getAllFollowUp = '/ClientFile/GetAllFollowUp';
+      '/ClientFileAttachment/AddClientFileFollowUp';
+  static const String getAllFollowUp = '/ClientFileAttachment/GetAllFollowUp';
   static const String addClientFileAttachment =
       '/ClientFileAttachment/AddClientFileAttachment';
   static const String getAllClients = '/Client/GetAllClients';

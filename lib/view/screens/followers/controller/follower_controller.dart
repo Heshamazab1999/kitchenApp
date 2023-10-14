@@ -15,6 +15,7 @@ class FollowerController extends BaseController {
   }
 
   FollowUpModel? followUpModel;
+  final data = <FollowList>[].obs;
   final services = FollowerServices();
   final path = "".obs;
   final note = "".obs;
@@ -40,6 +41,7 @@ class FollowerController extends BaseController {
       loading.value = true;
       await services.addClientFileFollowUp(
           note: note.value, file: file.value, clientFileId: clientFileId);
+     await getAllFollowUp(id: clientFileId);
       loading.value = false;
     }
   }
@@ -47,6 +49,7 @@ class FollowerController extends BaseController {
   getAllFollowUp({int? id}) async {
     setState(ViewState.busy);
     followUpModel = await services.getFollowUp(clientFileId: id);
+    data.assignAll(followUpModel?.data??[]);
     setState(ViewState.idle);
   }
 }
