@@ -66,7 +66,7 @@ class AppConstants {
   static const String getAllClientFileAttachment =
       '/ClientFileAttachment/GetAllClientFileAttachment';
   static const String deleteClientFileAttachment =
-      '/ClientFile/DeleteClientFileAttachment/';
+      '/ClientFileAttachment/DeleteClientFileAttachment/';
 
   static List<LanguageModel> languages = [
     LanguageModel(

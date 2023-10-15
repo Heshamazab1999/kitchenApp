@@ -170,7 +170,7 @@ class OfferScreenController extends BaseController {
         pageType: 0,
         userId: userSelectedFilter.value,
         finalStatusId:
-            itemSelected.value,
+        itemSelectedFilter.value,
         fileTypeId: groupValue.value.id
         // fileTypeId: 1
         );
